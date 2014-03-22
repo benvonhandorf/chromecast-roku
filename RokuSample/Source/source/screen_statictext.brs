@@ -7,6 +7,46 @@ Sub StaticTextScreen_WithBreadcrumb_Show(textFilePath as String, breadcrumb as S
 
 	textContents = ReadAsciiFile(textFilePath)
 
+	If HasTextScreen() Then
+		' Use the modern roTextScreen on newer devices
+		StaticModernTextScreen_WithBreadcrumb_Show(breadcrumb, textContents)
+	Else
+		' Fall back to roParagraphScreen for older devices.  Note that this does not scroll...
+		StaticFallbackTextScreen_WithBreadcrumb_Show(breadcrumb, textContents)
+	End If
+
+End Sub
+
+Sub StaticModernTextScreen_WithBreadcrumb_Show(breadcrumb as String, textContents as String)
+
+	messagePort = CreateObject("roMessagePort")
+	screen = CreateObject("roTextScreen")
+
+	screen.SetMessagePort(messagePort)
+
+	If breadcrumb <> "" Then
+		screen.SetBreadcrumbText(breadcrumb, "")
+	End If
+
+	screen.SetText(textContents)
+	screen.Show()
+
+	While True
+		message = wait(0, screen.GetMessagePort())
+
+		Print "Message Type: " + Type(message)
+
+		If message = Invalid Then
+			' I've found that occasionally I get an Invalid message object.
+		ElseIf message.IsScreenClosed() Then
+			Return
+
+		End If
+	End While
+End Sub
+
+Sub StaticFallbackTextScreen_WithBreadcrumb_Show(breadcrumb as String, textContents as String)
+
 	messagePort = CreateObject("roMessagePort")
 	screen = CreateObject("roParagraphScreen")
 

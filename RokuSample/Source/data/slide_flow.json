@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "title": "About Roku",
+      "slides": [
+        {
+          "ShortDescriptionLine1": "Roku Experience",
+          "ShortDescriptionLine2": "What is it like to own a Roku?",
+          "SDPosterUrl": "pkg:/images/slides/angry-desk-flip.png",
+          "HDPosterUrl": "pkg:/images/slides/angry-desk-flip.png"
+        },
+        {
+          "ShortDescriptionLine1": "Channels",
+          "ShortDescriptionLine2": "What is a channel?",
+          "SDPosterUrl": "pkg:/images/slides/angry-desk-flip.png",
+          "HDPosterUrl": "pkg:/images/slides/angry-desk-flip.png"
+        }
+      ]
+    },
+    {
+      "title": "Development",
+      "slides": [
+        {
+          "ShortDescriptionLine1": "Tooling",
+          "ShortDescriptionLine2": "What do you need to get started?",
+          "SDPosterUrl": "pkg:/images/slides/angry-desk-flip.png",
+          "HDPosterUrl": "pkg:/images/slides/angry-desk-flip.png",
+          "SlideText": "pkg:/slides/development_platform.txt"
+        },
+        {
+          "ShortDescriptionLine1": "Channel Structure",
+          "ShortDescriptionLine2": "What goes into a channel?",
+          "SDPosterUrl": "pkg:/images/slides/angry-desk-flip.png",
+          "HDPosterUrl": "pkg:/images/slides/angry-desk-flip.png"
+        },
+        {
+          "ShortDescriptionLine1": "Platform",
+          "ShortDescriptionLine2": "What do we develop in?",
+          "SDPosterUrl": "pkg:/images/slides/angry-desk-flip.png",
+          "HDPosterUrl": "pkg:/images/slides/angry-desk-flip.png",
+          "SlideText": "pkg:/slides/development_platform.txt"
+        }
+      ]
+    }
+  ]
+}
