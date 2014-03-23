@@ -14,6 +14,8 @@ Sub Main()
 	jsonString = jsonBytes.ToAsciiString()
 	presentationData = ParseJson(jsonString)
 
+	SetSlideIndices(presentationData)
+
 	' You can also use this as an opportunity to set appropriate values for your application themeing.
 	SetupTheme()
 

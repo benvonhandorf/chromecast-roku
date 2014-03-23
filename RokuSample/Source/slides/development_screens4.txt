@@ -1,0 +1,8 @@
+Show the Screen
+
+The screen will not be displayed until screen.Show() is called.  You may also need to re-call screen.Show() if you change elements on the screen (e.g. adding or removing buttons).
+
+	screen.SetContentList(screenData)
+
+	screen.Show()
+

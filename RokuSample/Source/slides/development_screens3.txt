@@ -1,0 +1,14 @@
+Configuring a Screen
+
+- Each screen type is configured differently, but for there is usually a method that takes an Associative Array (for detail screens) or an Array of Associative Arrays (for list screens).
+- (Exceptions include roParagraphScreen and roTextScreen)
+- The items expected in the Associative Array vary by screen type, but a roPosterScreen, for example, expects an Array of Associative Arrays which can include the following elements:
+ShortDescriptionLine1 & ShortDescriptionLine2 - Text descriptions of the item
+SDPosterUrl & HDPosterUrl - Low and high-res images. Aspect ratio and expected size are determined by the screen's style.
+
+- After creating the array, it is configured into the screen using screen.SetContentList(...)
+- The screen will not be displayed until screen.Show() is called.  You may also need to re-call screen.Show() if you change elements on the screen (e.g. adding or removing buttons).
+
+	screen.SetContentList(screenData)
+
+	screen.Show()

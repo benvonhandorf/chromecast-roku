@@ -1,0 +1,9 @@
+Creating a Screen
+
+- A screen is created by calling CreateObject.
+- You must associate it with the roMessagePort object you want to use if you want to react to user input in any way.  (Note that the Home button on the remote will always kill your program... that is not in your control)
+
+  messagePort = CreateObject("roMessagePort")
+  screen = CreateObject("roPosterScreen")
+
+  screen.SetMessagePort(messagePort)

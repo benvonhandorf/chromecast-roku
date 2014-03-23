@@ -1,0 +1,8 @@
+How do we test our Channel?
+
+- Every Roku can serve as a development box, but first you have to enter the secret code.  Using the Roku remote (not a smartphone app):
+- Home, Home, Home, Up, Up, Right, Left, Right, Left, Right 
+- (B, A... no wait, that's wrong, ignore that bit... unless you need extra lives)
+- Pick a password for your roku development.  You can always reset this password using the Rokunami Code above.
+- You can then deploy your Channel ZIP file to the Roku using any web browser.  You can find the Roku's IP address in the Settings/Player Info screen on the device.
+- Side Note: There are other secret codes for doing things like memory dumps. You can find them in the documentation (so I guess they're not too secret).

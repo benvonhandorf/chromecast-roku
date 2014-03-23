@@ -1,5 +1,0 @@
-This is a test slide
-
-It has some text on it... so I guess it's a text test slide... or a test text slide.
-
-This is a second test paragraph

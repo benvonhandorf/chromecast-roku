@@ -19,7 +19,7 @@ Sub PresentationScreen_Show(presentationData as Object)
 
 	screen.Show()
 
-	While True ''TODO: Refactor the message loop somewhere?
+	While True 
 		message = wait(0, messagePort)
 
 		If message = Invalid Then
@@ -33,9 +33,9 @@ Sub PresentationScreen_Show(presentationData as Object)
 		ElseIf message.IsListItemSelected() Then
 			slideIndex = message.GetIndex()
 
-			slide = GetSlide(presentationData, selectedCategory, slideIndex)
+			slide = GetSlideInCategory(presentationData, selectedCategory, slideIndex)
 
-			ShowSlide(slide, presentationData)
+			DisplaySlide(presentationData, slide.SlideIndex)
 		End If
 	End While
 
@@ -47,14 +47,4 @@ Sub ShowSlidesInSection(screen as Object, presentationData As Object, selectedCa
 
 	screen.SetContentList(category.slides)
 	screen.SetFocusedListItem(0)
-End Sub
-
-Sub ShowSlide(slide as Object, presentationData as Object)
-	Print "Showing slide:" + slide.ShortDescriptionLine1
-
-	If slide.DoesExist("SlideText") Then
-		' We want to show a text file.  Fire up a text screen
-
-	End If
-
 End Sub

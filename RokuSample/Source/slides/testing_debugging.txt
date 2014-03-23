@@ -1,0 +1,12 @@
+Debugging
+
+The Roku actually has a fairly powerful debugging environment built in.  To access it:
+Telnet to your Roku's IP address on port 8085
+Basic commands:
+   Execution will stop when an error occurs or with CTRL-C
+   Any valid BrightScript command can be run here, including variable assignment.
+   Print will show the value of an expression
+   bt (Backtrace) will show the call stack to this point
+   var will show local variables
+   step will execute the next statement
+   Cont (or c) will continue program execution

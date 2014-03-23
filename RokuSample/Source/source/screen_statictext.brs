@@ -1,38 +1,42 @@
-Sub StaticTextScreen_Show(textFilePath as String)
-	StaticTextScreen_WithBreadcrumb_Show(textFilePath, "")
+Sub StaticTextSlide_Show(presentationData as Object, slide as Object)
+	breadcrumb = slide.Breadcrumb
+
+	If breadcrumb = Invalid Then
+		breadcrumb = ""
+	End If
+
+	StaticTextScreen_Show(slide.SlideText, breadcrumb, presentationData, slide.SlideIndex)
 End Sub
 
-Sub StaticTextScreen_WithBreadcrumb_Show(textFilePath as String, breadcrumb as String)
+Sub StaticTextScreen_Show(textFilePath as String, breadcrumb as String, presentationData as Object, slideIndex as Integer)
 	Print "Loading text file: " + textFilePath
 
 	textContents = ReadAsciiFile(textFilePath)
 
-	If HasTextScreen() Then
-		' Use the modern roTextScreen on newer devices
-		StaticModernTextScreen_WithBreadcrumb_Show(breadcrumb, textContents)
-	Else
-		' Fall back to roParagraphScreen for older devices.  Note that this does not scroll...
-		StaticFallbackTextScreen_WithBreadcrumb_Show(breadcrumb, textContents)
+	screenObject = Invalid
+
+	' Needs a button to be added to close the screen if we're not going to add the Next/Previous buttons
+	screenObject = StaticFallbackTextScreen_WithBreadcrumb_Show(breadcrumb, textContents, presentationData = Invalid)
+
+	If presentationData <> Invalid Then
+		If HasNextSlide(presentationData, slideIndex) Then
+			screenObject.screen.AddButton(1, "Next")
+		End If
+
+		If HasPreviousSlide(presentationData, slideIndex) Then
+			screenObject.screen.AddButton(-1, "Previous")
+		End If
 	End If
 
-End Sub
+	screenObject.screen.Show()
 
-Sub StaticModernTextScreen_WithBreadcrumb_Show(breadcrumb as String, textContents as String)
-
-	messagePort = CreateObject("roMessagePort")
-	screen = CreateObject("roTextScreen")
-
-	screen.SetMessagePort(messagePort)
-
-	If breadcrumb <> "" Then
-		screen.SetBreadcrumbText(breadcrumb, "")
+	If presentationData.ScreenToClose <> Invalid Then
+		presentationData.ScreenToClose.Close()
+		presentationData.ScreenToClose = Invalid
 	End If
-
-	screen.SetText(textContents)
-	screen.Show()
 
 	While True
-		message = wait(0, screen.GetMessagePort())
+		message = wait(0, screenObject.screen.GetMessagePort())
 
 		Print "Message Type: " + Type(message)
 
@@ -40,12 +44,41 @@ Sub StaticModernTextScreen_WithBreadcrumb_Show(breadcrumb as String, textContent
 			' I've found that occasionally I get an Invalid message object.
 		ElseIf message.IsScreenClosed() Then
 			Return
+		ElseIf message.IsButtonPressed() Then
+			buttonIndex = message.GetIndex()
 
+			If buttonIndex = 0 Then
+				Return
+			End If
+
+			If buttonIndex > 0 Then
+				nextToken = screenObject.tokens.GetIndex()
+
+				If nextToken <> Invalid Then
+					' Next was selected while there's still unshown content.  Show the next element
+					screenObject.AddItem(nextToken)
+					buttonIndex = 0
+				End If
+			End If
+
+
+			If buttonIndex <> 0 Then
+				' Display the requested slide
+				nextSlide = slideIndex + buttonIndex ' Previous is -1, Next is 1
+
+				presentationData.ScreenToClose = screenObject.screen
+
+				DisplaySlide(presentationData, nextSlide)
+
+				Return
+			End If
 		End If
+
 	End While
+
 End Sub
 
-Sub StaticFallbackTextScreen_WithBreadcrumb_Show(breadcrumb as String, textContents as String)
+Function StaticFallbackTextScreen_WithBreadcrumb_Show(breadcrumb as String, textContents as String, needsButton as Boolean) as Object
 
 	messagePort = CreateObject("roMessagePort")
 	screen = CreateObject("roParagraphScreen")
@@ -58,45 +91,35 @@ Sub StaticFallbackTextScreen_WithBreadcrumb_Show(breadcrumb as String, textConte
 
 	tokens = textContents.Tokenize(Chr(10))
 
-	Print "File loaded.  Tokens Found:" + Str(tokens.Count())
+	result = {screen: screen
+			tokens: tokens
+			AddItem: Function(item As String) : m.screen.AddParagraph(item) : End Function
+		}
 
-	tokens.ResetIndex()
+	result.tokens.ResetIndex()
 
-	nextItem = tokens.GetIndex()
+	nextItem = result.tokens.GetIndex()
 
-	if (nextItem <> invalid) Then
-		screen.AddHeaderText(nextItem)
+	If (nextItem <> invalid) Then
+		result.screen.AddHeaderText(nextItem)
 
-		nextItem = tokens.GetIndex()
+		nextItem = result.tokens.GetIndex()
 	End If
 
 	While nextItem <> Invalid
-		screen.AddParagraph(nextItem)
-		nextItem = tokens.GetIndex()
-	End While
+		result.screen.AddParagraph(nextItem)
 
-	screen.AddButton(0, "Close")
-
-	screen.Show()
-
-	While True
-		message = wait(0, screen.GetMessagePort())
-
-		Print "Message Type: " + Type(message)
-
-		If message = Invalid Then
-			' I've found that occasionally I get an Invalid message object.
-		ElseIf message.IsScreenClosed() Then
-			Return
-		ElseIf Type(message) = "roParagraphScreenEvent" Then
-			' Events specific to this screen type.  Here's where most commands
-			' will come through.
-
+		If nextItem.Left(1) = "-" Then
+			' Bullet Points will be shown one at a time
 			Exit While
-		Else
-			Print "Message Type: " + Str(Type(message))
-		End If 
+		End If
 
+		nextItem = result.tokens.GetIndex()
 	End While
 
-End Sub
+	If needsButton Then
+		result.screen.AddButton(0, "Close")
+	End If 
+
+	Return result
+End Function

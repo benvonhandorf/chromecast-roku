@@ -1,0 +1,7 @@
+What is it like to own a Roku?
+
+- A Roku is associated with an account which controls which "Channels" and premium content are available.
+
+- Channels are self-contained and do not communicate with each other or share content.
+
+- Channels CAN co-operate with mobile applications, but this is not common.

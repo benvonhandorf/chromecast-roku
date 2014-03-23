@@ -31,7 +31,7 @@ Sub DirectoryListingScreen_Show(directoryPath as String)
 
 				path = directoryPath + directoryListing.GetEntry(index)
 
-				StaticTextScreen_Show(path)
+				StaticTextScreen_Show(path, "")
 			End If
 
 		End If 

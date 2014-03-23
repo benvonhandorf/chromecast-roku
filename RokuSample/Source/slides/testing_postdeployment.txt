@@ -1,0 +1,6 @@
+What happens on deployment?
+
+- The Roku examines the Manifest file and creates an icon for your channel
+- The Roku compiles all the BrightScript in your zip file. This will catch gross syntax errors, but will not do things like compare types.
+- If the compilation fails, your channel's icon will not appear, but a (usually unhelpful) error will be written to the debugger.
+- Assuming compilation succeeds, the Roku will start your Channel and you can start interacting.
