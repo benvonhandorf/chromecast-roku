@@ -1,0 +1,8 @@
+Public Deployments
+
+Roku Channel Submission is very similar to submitting to Apple or Google Play stores. You provide:
+- Channel Name & Description
+- Graphics
+- Signed package file
+
+Roku will then review public channels for correctness and appropriateness.  They have content guidelines... familiarize yourself with them!

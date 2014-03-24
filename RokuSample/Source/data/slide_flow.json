@@ -130,6 +130,32 @@
           "SlideText": "pkg:/slides/testing_debugging.txt"
         }
       ]
+    },
+    {
+      "title": "Deployment",
+      "slides": [
+        {
+          "ShortDescriptionLine1": "Options",
+          "ShortDescriptionLine2": "How can we get our channel to users?",
+          "SDPosterUrl": "pkg:/images/slides/angry-desk-flip.png",
+          "HDPosterUrl": "pkg:/images/slides/angry-desk-flip.png",
+          "SlideText": "pkg:/slides/deployment_options.txt"
+        },
+        {
+          "ShortDescriptionLine1": "Private Deployment",
+          "ShortDescriptionLine2": "For testing or line of business",
+          "SDPosterUrl": "pkg:/images/slides/angry-desk-flip.png",
+          "HDPosterUrl": "pkg:/images/slides/angry-desk-flip.png",
+          "SlideText": "pkg:/slides/deployment_private.txt"
+        },
+        {
+          "ShortDescriptionLine1": "Public Deployment",
+          "ShortDescriptionLine2": "Getting your Channel to the Masses",
+          "SDPosterUrl": "pkg:/images/slides/angry-desk-flip.png",
+          "HDPosterUrl": "pkg:/images/slides/angry-desk-flip.png",
+          "SlideText": "pkg:/slides/deployment_public.txt"
+        }
+      ]
     }
   ]
 }

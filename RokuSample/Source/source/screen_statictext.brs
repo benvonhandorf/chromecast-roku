@@ -16,7 +16,7 @@ Sub StaticTextScreen_Show(textFilePath as String, breadcrumb as String, presenta
 	screenObject = Invalid
 
 	' Needs a button to be added to close the screen if we're not going to add the Next/Previous buttons
-	screenObject = StaticFallbackTextScreen_WithBreadcrumb_Show(breadcrumb, textContents, presentationData = Invalid)
+	screenObject = StaticFallbackTextScreen_WithBreadcrumb_Show(breadcrumb, textContents)
 
 	If presentationData <> Invalid Then
 		If HasNextSlide(presentationData, slideIndex) Then
@@ -27,6 +27,8 @@ Sub StaticTextScreen_Show(textFilePath as String, breadcrumb as String, presenta
 			screenObject.screen.AddButton(-1, "Previous")
 		End If
 	End If
+
+	screenObject.screen.AddButton(0, "Close")
 
 	screenObject.screen.Show()
 
@@ -78,7 +80,7 @@ Sub StaticTextScreen_Show(textFilePath as String, breadcrumb as String, presenta
 
 End Sub
 
-Function StaticFallbackTextScreen_WithBreadcrumb_Show(breadcrumb as String, textContents as String, needsButton as Boolean) as Object
+Function StaticFallbackTextScreen_WithBreadcrumb_Show(breadcrumb as String, textContents as String) as Object
 
 	messagePort = CreateObject("roMessagePort")
 	screen = CreateObject("roParagraphScreen")
@@ -116,10 +118,6 @@ Function StaticFallbackTextScreen_WithBreadcrumb_Show(breadcrumb as String, text
 
 		nextItem = result.tokens.GetIndex()
 	End While
-
-	If needsButton Then
-		result.screen.AddButton(0, "Close")
-	End If 
 
 	Return result
 End Function

@@ -7,8 +7,3 @@ ShortDescriptionLine1 & ShortDescriptionLine2 - Text descriptions of the item
 SDPosterUrl & HDPosterUrl - Low and high-res images. Aspect ratio and expected size are determined by the screen's style.
 
 - After creating the array, it is configured into the screen using screen.SetContentList(...)
-- The screen will not be displayed until screen.Show() is called.  You may also need to re-call screen.Show() if you change elements on the screen (e.g. adding or removing buttons).
-
-	screen.SetContentList(screenData)
-
-	screen.Show()

@@ -4,4 +4,6 @@ What is a Channel?
 
 - Channels are (usually) associated with a content provider like Netflix, Hulu, HBO, etc.  Roku provides a specific flow for helping you associate your Roku account with an account from Amazon, Netflix, etc.
 
-- We can create a Channels using the Roku SDK 
+- Channels are self-contained and do not communicate with each other or share content.
+
+- Channels CAN co-operate with mobile applications (using the External Control Protocol), but this is not common.
