@@ -2,7 +2,7 @@ What is a Channel?
 
 - A Channel is a small app that is downloaded to the individual Roku boxes and runs there.
 
-- Channels are (usually) associated with a content provider like Netflix, Hulu, HBO, etc.  Roku provides a specific flow for helping you associate your Roku account with an account from Amazon, Netflix, etc.
+- Channels are (usually) associated with a content provider like Netflix, Hulu, HBO, etc.  
 
 - Channels are self-contained and do not communicate with each other or share content.
 

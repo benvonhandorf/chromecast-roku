@@ -1,6 +1,6 @@
 Debugging
 
-The Roku actually has a fairly powerful debugging environment built in.  To access it:
+- The Roku actually has a fairly powerful debugging environment built in.  To access it:
 Telnet to your Roku's IP address on port 8085
 Basic commands:
    Execution will stop when an error occurs or with CTRL-C
