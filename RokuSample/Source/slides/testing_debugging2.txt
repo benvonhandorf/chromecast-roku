@@ -1,4 +1,4 @@
-- Basic commands:
+Debugging commands:
    Any valid BrightScript command can be run here, including variable assignment.
    Print will show the value of an expression
    bt (Backtrace) will show the call stack to this point

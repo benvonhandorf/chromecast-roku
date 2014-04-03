@@ -1,6 +1,6 @@
 What is it like to own a Roku?
 
-- A Roku is associated with an account which controls which "Channels" and premium content are available.
+- Each device is associated with a Roku account.
 
 - A user can manage their channels though the device or the web.
 

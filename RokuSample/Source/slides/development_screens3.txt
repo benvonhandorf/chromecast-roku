@@ -2,7 +2,7 @@ Configuring a Screen
 
 - (Usually) Configured via an associative array or array of associative arrays.
 - Expected elements vary by screen type, e.g. for roPosterScreen
-ShortDescriptionLine1 & ShortDescriptionLine2 - Text descriptions of the item
-SDPosterUrl & HDPosterUrl - Low and high-res images. Aspect ratio and expected size are determined by the screen's style.
-- After creating the array, it is configured into the screen using screen.SetContentList(...)
-- Screens like roParagraphScreen and roSearchScreen are configured more directly with discrete method calls.
+ShortDescriptionLine1 - Text description of the item
+SDPosterUrl & HDPosterUrl - Image URLs.
+- Screen is configured using SetContentList(array)
+- Non-data screens use discrete method calls.
