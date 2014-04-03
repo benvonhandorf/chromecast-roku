@@ -1,5 +1,5 @@
 Signing Keys
 
-Much like iOS and Android, Channels are signed with developer keys.  Some items to consider:
-- Make sure you archive the first signed version of your channel, along with the password.  With these, you can recover the key or restore it onto another Roku.
-- Consider generating different keys for different apps, for the same reasons you would do so on Android: apps signed with the same key have special rights to each other and it would prohibit you from transferring rights for one app to another party.
+Channels are signed with developer keys.  Some items to consider:
+- Archive the first signed version of your channel, along with the password.  
+- Consider generating different keys for different apps.

@@ -5,6 +5,4 @@ BrightScript Details
 - Associative Arrays are frequently used to configure UI elements.
 - Variables do not need to be declared before use.
 - A Sub is a Function without a return value (e.g. it returns Void).
-- Can use some modern JavaScript tricks to create some OO like containment of functionality, but most coding will be done in naked methods.
 - All files are compiled together, so you can group functionality however you like.
-- SDK Objects are created with CreateObject("roObjectType")

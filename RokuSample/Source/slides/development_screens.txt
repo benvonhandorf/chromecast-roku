@@ -1,9 +1,9 @@
 Screens
 
-- All Roku UI is composed of screen objects which are managed on a stack (not dissimilar to Android or a UINavigationController on iOS).
+- Roku screens live on a UI Stack
 
-Different screen types serve different, specific UI functions. e.g.:
-- roPosterScreen provides a horizontal listing of items in a number of different styles. Items can be subdivided into categories.
-- roGridScreen provides a vertically scrollable grid of rows which contain items.
-- roParagraphScreen is a screen for displaying text or images.
-- roSearchScreen to enter text into a search box (or other text entry)
+Different Tasks, Different Screens:
+- roPosterScreen - Single row of data
+- roGridScreen - Multiple rows
+- roParagraphScreen - Text or images.
+- roSearchScreen - Text entry

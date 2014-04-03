@@ -128,6 +128,13 @@
           "SDPosterUrl": "pkg:/images/slides/7.jpg",
           "HDPosterUrl": "pkg:/images/slides/7.jpg",
           "SlideText": "pkg:/slides/testing_debugging.txt"
+        },
+        {
+          "ShortDescriptionLine1": "Debugging",
+          "ShortDescriptionLine2": "Commands",
+          "SDPosterUrl": "pkg:/images/slides/1.jpg",
+          "HDPosterUrl": "pkg:/images/slides/1.jpg",
+          "SlideText": "pkg:/slides/testing_debugging2.txt"
         }
       ]
     },

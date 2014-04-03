@@ -1,7 +1,7 @@
 Program Flow
 
-- When the Channel is started, Sub Main() will be called.
+- Splash screen is displayed
 
-- The splash screen will be displayed until the first screen is displayed, so this is a great opportunity to pre-cache resources or hit APIs for startup data.
+- Program starts with Sub Main()
 
-- Side Note: All Roku Channels are single-threaded, so if you pass up this opportunity to pre-cache resources, your program will wind up pausing later while you make your network calls.
+- Do precaching before displaying your first screen

@@ -1,5 +1,5 @@
 Development Tools
 
-- Text editor (if you don't have a preference, Sublime Text has a syntax highlighter plugin available)
+- Text editor (Sublime Text has a syntax highlighter plugin available)
 - Web browser
 - Roku developer account (free)

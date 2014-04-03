@@ -1,5 +1,5 @@
 Depoyment Options
 
 A Channel can be published one of two ways:
-- Public publishing through the Roku Channel store search interface.  This makes sense for most "consumer" applications.
-- Private publishing, which creates a secret link into the Roku Store which you then use to install the channel into Roku accounts.
+- Public publishing through the Roku Channel store search interface.
+- Private publishing allows control over distribution through a link.

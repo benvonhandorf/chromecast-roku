@@ -1,9 +1,9 @@
 Show the Screen
 
-The screen will not be displayed until screen.Show() is called.  You may also need to re-call screen.Show() if you change elements on the screen (e.g. adding or removing buttons).
+After configuring the screen, display it:
 
 	' Screen Setup
 
 	screen.Show()
 
-- After Show()ing a screen, you will want to wait for user input.  This is done with a message loop. (For those of us who are older than JavaScript, this may look familiar)
+- After Show()ing a screen, enter the message loop

@@ -2,6 +2,6 @@ Private Channels
 
 - No approval process
 - Added through the web by going to and add URL with a developer-generated identifier.
-- Great for testing and quiet roll outs, or simply for non-public channels.
+- Testing, quiet roll outs, or non-public channels.
 - Can be promoted to Public later
-- This portion of the presentation is available at https://owner.roku.com/add/15d7ce648d6142319
+- This portion of the presentation is available at http://bit.ly/rokudev
